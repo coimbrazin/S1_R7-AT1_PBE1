@@ -9,7 +9,7 @@ const clienteModel = {
   },
 
   selectByCliente: async (pId) => {
-    const sql = 'SELECT * FROM clientes WHERE id_cliente=?;';
+    const sql = 'SELECT * FROM clientes WHERE id_clientes=?;';
     const values = [pId]
     const [rows] = await pool.query(sql, values);
     return rows;
@@ -30,14 +30,14 @@ const clienteModel = {
   },
 
   updateCliente: async (pIdCliente, pNomeCliente, pCpf) => {
-    const sql = 'UPDATE clientes SET nome_cliente=?, cpf_cliente=? WHERE id_cliente=?;';
+    const sql = 'UPDATE clientes SET nome_cliente=?, cpf_cliente=? WHERE id_clientes=?;';
     const values = [pNomeCliente, pCpf, pIdCliente];
     const [rows] = await pool.query(sql, values);
     return rows;
   },
 
   deleteCliente: async (pIdCliente) => {
-    const sql = 'DELETE FROM clientes WHERE id_cliente=?;';
+    const sql = 'DELETE FROM clientes WHERE id_clientes=?;';
     const values = [pIdCliente];
     const [rows] = await pool.query(sql, values);
     return rows;
