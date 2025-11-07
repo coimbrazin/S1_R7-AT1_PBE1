@@ -49,7 +49,7 @@ const clienteController = {
       const id_cliente = Number(req.params.id_cliente);
       const { nome, cpf } = req.body;
 
-      if (!id_cliente || (!nome && !cpf) || !isNaN(nome) || typeof id_cliente != 'number') {
+      if (!id_cliente || (!nome && !cpf) || (nome || !isNaN(nome)) || typeof id_cliente != 'number') {
         return res.status(400).json({ message: 'Verifique os dados enviados e tente novamente' });
       }
       if (cpf !== undefined) {
