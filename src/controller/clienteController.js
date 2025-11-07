@@ -102,7 +102,7 @@ const clienteController = {
           return res.status(400).json({ message: 'Cliente não localizado na base de dados' });
         }
   
-        const resultadoDelete = await clienteModel.deleteCliente(id_cliente)
+        const resultadoDelete = await clienteModel.deleteCliente(id_cliente);
         if (resultadoDelete.affectedRows === 0) {
           return res.status(200).json({ message: 'Ocorreu um erro ao excluir o produto' });
         }
@@ -114,7 +114,6 @@ const clienteController = {
         res.status(500).json({ message: 'Ocorreu um erro no servidor', errorMessage: error.message });
       }
     }
-
 }
 
 module.exports = { clienteController };
